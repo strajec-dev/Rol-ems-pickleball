@@ -1,18 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-html {
-  scroll-behavior: smooth;
+/* ─── Original ROL-EMS Brand Design Tokens ───────────────────────────────────── */
+:root {
+  --green: #1E5336;
+  --green-dark: #153d27;
+  --green-light: #e8f3ed;
+  --gold: #E1A728;
+  --gold-dark: #c48e1a;
+  --gold-light: #fdf6e7;
+
+  --cream: #FDFBF7;
+  --surface: #F3F0EC;
+  --white: #FFFFFF;
+  --black: #222222;
+  --muted: #6B756B;
+  --border: rgba(34, 34, 34, 0.12);
+
+  /* Status Badge Colors */
+  --status-available-bg: #e8f3ed;
+  --status-available-text: #1E5336;
+
+  --status-reserved-bg: #fdf6e7;
+  --status-reserved-text: #b8850f;
+
+  --status-occupied-bg: #fde8e8;
+  --status-occupied-text: #c53030;
+
+  --status-open-play-bg: #ebf8ff;
+  --status-open-play-text: #2b6cb0;
+
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--cream);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Status Badges */
+.badge-available {
+  background-color: var(--status-available-bg);
+  color: var(--status-available-text);
+  border: 1px solid rgba(30, 83, 54, 0.2);
+}
+
+.badge-reserved {
+  background-color: var(--status-reserved-bg);
+  color: var(--status-reserved-text);
+  border: 1px solid rgba(225, 167, 40, 0.3);
+}
+
+.badge-occupied {
+  background-color: var(--status-occupied-bg);
+  color: var(--status-occupied-text);
+  border: 1px solid rgba(197, 48, 48, 0.2);
+}
+
+.badge-open-play {
+  background-color: var(--status-open-play-bg);
+  color: var(--status-open-play-text);
+  border: 1px solid rgba(43, 108, 176, 0.2);
+}
+
+/* Animations */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.dot-pulse-green {
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--green);
 }
